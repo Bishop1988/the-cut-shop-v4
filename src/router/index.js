@@ -6,6 +6,14 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    props: true
+  },
+  {
+    path: "/materials/:slug",
+    name: "materialsDetails",
+    props: true,
+    component: () =>
+      import(/* webpackChunkName: "MaterialsDetails" */ "../views/MaterialsDetails.vue"),
   },
   {
     path: "/about",
@@ -19,6 +27,7 @@ const routes = [
 ];
 
 const router = createRouter({
+  linkExactActiveClass: "cut-shop-active-class",
   history: createWebHashHistory(),
   routes,
 });
